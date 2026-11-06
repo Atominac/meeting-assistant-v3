@@ -1,0 +1,76 @@
+{
+  "name": "meeting-assistant-v3-desktop",
+  "productName": "Meeting Assistant",
+  "version": "1.0.0",
+  "description": "Records Zoom, Google Meet and Teams calls from your Mac or Windows PC without a bot, with an always-on-top widget",
+  "main": "main.cjs",
+  "author": "GoHighLevel",
+  "scripts": {
+    "start": "node run.cjs",
+    "start:app": "open -n node_modules/electron/dist/Electron.app --args \"$PWD\"",
+    "demo": "node run.cjs --demo",
+    "dist": "electron-builder --mac",
+    "dist:win": "electron-builder --win --x64"
+  },
+  "dependencies": {
+    "meeting-desktop-sdk": "file:../../meeting-sdk/packages/sdk",
+    "dotenv": "^18.0.9"
+  },
+  "devDependencies": {
+    "electron": "^34.5.8",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.gohighlevel.meetingassistant.v3",
+    "productName": "Meeting Assistant",
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "renderer/**",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/meeting-desktop-sdk/**"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "extendInfo": {
+        "LSUIElement": true,
+        "NSMicrophoneUsageDescription": "Meeting Assistant records your voice in meetings you choose to record.",
+        "NSAudioCaptureUsageDescription": "Meeting Assistant records the other participants' audio in meetings you choose to record.",
+        "NSScreenCaptureUsageDescription": "Meeting Assistant records the meeting window in meetings you choose to record.",
+        "NSAppleEventsUsageDescription": "Meeting Assistant may ask other apps for the meeting title."
+      },
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    }
+  },
+  "allowScripts": {
+    "electron@34.5.8": true
+  }
+}

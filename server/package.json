@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test \"test/*.test.js\"",
+    "set-password": "node scripts/set-password.js",
+    "test-deepgram": "node scripts/test-deepgram.js",
+    "debug-meeting": "node scripts/debug-meeting.js"
+  },
+  "dependencies": {
+    "openai": "^4.104.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.10.0"
+  }
+}

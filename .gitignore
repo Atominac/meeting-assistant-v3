@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+credentials*.json
+
+# Local data (recordings, DB backups)
+data/
+
+# Build output
+dist/
+/build/
+web/build/
+out/
+release/
+
+# Logs & OS/editor cruft
+*.log
+.DS_Store
+.vscode/
+.idea/
+.claude/
