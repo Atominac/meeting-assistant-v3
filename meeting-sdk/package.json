@@ -1,0 +1,10 @@
+{
+  "name": "meeting-sdk-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:mac": "native/macos/build.sh",
+    "test": "node --test test/*.test.mjs",
+    "mock": "node mock-server/server.mjs"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "meeting-desktop-sdk",
+  "version": "0.1.0",
+  "description": "Desktop meeting detection and recording SDK (Node wrapper around a native helper process)",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "engines": { "node": ">=18.0.0" },
+  "license": "UNLICENSED"
+}
